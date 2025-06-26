@@ -11,8 +11,8 @@ region = (x, y, width, height)
 # загрузка шаблонов
 def load_templates():
     return {
-        "bonus": cv2.imread("templates/new_bonus.jpg", cv2.IMREAD_COLOR),
-        "get_bonus": cv2.imread("templates/get_bonus.jpg", cv2.IMREAD_COLOR),
+        "bonus": cv2.imread("templates/bonus_button.png", cv2.IMREAD_COLOR),
+        "get_bonus": cv2.imread("templates/get_bonus_button.png", cv2.IMREAD_COLOR),
         "start1": cv2.imread("templates/start_button.png", cv2.IMREAD_COLOR),
         "start2": cv2.imread("templates/start_button_2.png", cv2.IMREAD_COLOR),
         "end_reward": cv2.imread("templates/end_reward_button.png", cv2.IMREAD_COLOR),
