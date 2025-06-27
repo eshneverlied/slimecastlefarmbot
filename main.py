@@ -4,8 +4,7 @@ import pyautogui
 import time
 from PIL import Image
 import os
-
-x, y, width, height = 0, 228, 450, 962
+from config import x,y,width,height
 region = (x, y, width, height)
 
 # загрузка шаблонов
@@ -17,7 +16,10 @@ def load_templates():
         "start2": cv2.imread("templates/start_button_2.png", cv2.IMREAD_COLOR),
         "end_reward": cv2.imread("templates/end_reward_button.png", cv2.IMREAD_COLOR),
         "treasure_tile": cv2.imread("templates/treasure_tile.png", cv2.IMREAD_COLOR),
+        "get_treasure_button": cv2.imread("templates/get_treasure_button.png", cv2.IMREAD_COLOR),
+
     }
+
 
 def take_screenshot():
     s = pyautogui.screenshot(region=region)
@@ -71,7 +73,6 @@ def find_and_click_best(template, screenshot, threshold=0.85):
 templates = load_templates()
 
 while True:
-    time.sleep(1)
     screen = take_screenshot()
     clicked = False
 
@@ -87,6 +88,8 @@ while True:
         elif find_and_click(templates["start1"], screen):
             clicked = True
         elif find_and_click(templates["end_reward"], screen):
+            clicked = True
+        elif find_and_click(templates["get_treasure_button"], screen):
             clicked = True
         elif find_and_click_best(templates["treasure_tile"], screen):
             clicked = True

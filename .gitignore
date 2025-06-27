@@ -3,4 +3,5 @@ __pycache__/
 debug_*.png
 venv
 test.py
+README.md
 

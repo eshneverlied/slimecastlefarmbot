@@ -96,6 +96,23 @@ def crop_get_bonus_button():
         print(f"📦 Saved: {button_path}")
     except Exception as e:
         print(f"❌ Error saving template: {e}")
+def crop_get_treasure_button():
+    try:
+        screenshot = pyautogui.screenshot(region=region)
+        left, top = 155, 685
+        right, bottom = 300, 730
+        button = screenshot.crop((left, top, right, bottom))
+
+        # Убедимся, что папка есть
+        import os
+        os.makedirs("templates", exist_ok=True)
+
+        button_path = "templates/get_treasure_button.png"
+        button.save(button_path)
+        print(f"📦 Saved: {button_path}")
+    except Exception as e:
+        print(f"❌ Error saving template: {e}")
+
 
 
 # ❗ Обрезку вызвать вручную при необходимости:
@@ -103,8 +120,8 @@ def crop_get_bonus_button():
 #crop_second_start_button()
 #crop_end_reward_button()
 # crop_treasure_question_tile()
-crop_get_bonus_button()
-
+#crop_get_bonus_button()
+#crop_get_treasure_button()
 
 
 # загрузка шаблонов
@@ -226,7 +243,7 @@ treasure_tile_img = cv2.imread("templates/treasure_tile.png",cv2.IMREAD_COLOR)
 
 # ✅ Основной проход
 screenshot = pyautogui.screenshot(region=region)
-screenshot.save("debug_screen.png")
+screenshot.save("debug_get_treasure_screen.png")
 screen = cv2.cvtColor(np.array(screenshot), cv2.COLOR_RGB2BGR)
 
 time.sleep(2)
